@@ -1,0 +1,28 @@
+오늘만 사는 알고리즘
+
+Ubuntu 14.04.4 LTS (GNU/Linux 3.13.0-74-generic x84_64)
+
+git
+1. 생성된 directory 안에서 git 저장소 생성
+    git init
+
+2. 추가되거나 변경된 파일 있으면 index(stage)에 추가 
+    git add 추가/변경된파일 or git add *
+
+3. stage 상태 확인
+    git status
+
+4. commit(아직 github 에 반영되지 않음)
+    git commit -m "commit에 관련해서 남길 message"
+
+5. 변경된 이력 확인
+    git log
+
+6. git에 원격 저장소(github) 주소 알려줌
+    git remote add origin https://github.com/gimozzi/algorithm.git
+                          (주소는 git에서 복붙하면 되죠)
+
+7. github에 update
+    git push origin master
+    ID 입력
+    PW 입력
