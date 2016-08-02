@@ -14,11 +14,11 @@ int main (void) {
     gets(input);    //acm 에서는 stdio 써야되는데 어띃하죠...
     strcpy(output, "");
 
-    p = strtok(input, " ");
+    p = strtok(input, " \t");
     if( p ) strcat(output, p);
     printf("%d\n", i++);
 //    while( p != NULL ){
-    while(p = strtok(NULL, " ")){
+    while(p = strtok(NULL, " \t")){
 //        p = strtok(NULL, " ");
         printf("%d[%s]\n", i++, p);
         if( p ){
