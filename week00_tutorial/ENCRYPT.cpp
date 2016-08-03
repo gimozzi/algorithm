@@ -18,10 +18,13 @@ int main (void) {
             cout << input << endl;
         }
         else{
-            for(int i=0 ; i<input.length()/2 ; i++)
-                output += input[i*2];   //output.append(input[i*2];
-            for(int i=0 ; i<input.length()/2 ; i++)
-                output += input[(i*2) + 1];   
+            for(int i=0 ; i<input.length() ; i++)
+                if(i%2 == 0)
+                    output += input[i];   //output.append(input[i*2];
+            for(int i=0 ; i<input.length() ; i++)
+                if(i%2 == 1)
+                    output += input[i];   //output.append(input[i*2];
+                   // output += input[(i*2) + 1];   
             cout << output << endl;
         }
     }

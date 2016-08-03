@@ -4,3 +4,5 @@ algospot tutorial...
 
 LECTURE.cpp 는 실패한 코드다
 LECTURE2.cpp 도 실패한 코드다
+
+ENCRYPT.cpp: 오답 - 입력받은 문자열의 개수가 홀수인 경우
