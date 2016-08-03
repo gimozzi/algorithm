@@ -29,12 +29,17 @@ int main (void) {
             v1.push_back((int)input[i * 2]);
             v2.push_back((int)input[(i * 2) + 1]);
         }
+        /*
+        for(int i = 0 ; i<input.length()/2 ; i++)
+            cout << (char)v1[i] << (char)v2[i];
+        cout << endl;
+        */
 
         // max 500 substrings 이므로 아무 정렬이나 사용
         // substring 중 두번째 글자 먼저 정렬
         for(int i=0 ; i< input.length()/2 ; i++){
             for(int j=0 ; j<input.length()/2 ; j++){
-                if(v2[j] >= v2[i]){
+                if(v2[j] < v2[i] && i <= j){
                     temp = v2[j];
                     v2[j] = v2[i];
                     v2[i] = temp;
@@ -42,13 +47,24 @@ int main (void) {
                     temp = v1[j];
                     v1[j] = v1[i];
                     v1[i] = temp;
-                }                
+                }    
+                /*
+                cout<<"[";
+                for(int i = 0 ; i<input.length()/2 ; i++)
+                    cout << (char)v1[i] << (char)v2[i];
+                cout <<"]"<< endl;
+                */
             }
         }
+        /*
+        for(int i = 0 ; i<input.length()/2 ; i++)
+            cout << (char)v1[i] << (char)v2[i];
+        cout << endl;
+        */
         // substring 중 첫번째 글자 정렬
         for(int i=0 ; i< input.length()/2 ; i++){
             for(int j=0 ; j<input.length()/2 ; j++){
-                if(v1[j] >= v1[i]){
+                if(v1[j] < v1[i] && i <= j){
                     temp = v2[j];
                     v2[j] = v2[i];
                     v2[i] = temp;
@@ -57,6 +73,12 @@ int main (void) {
                     v1[j] = v1[i];
                     v1[i] = temp;
                 }                
+                /*
+                cout<<"[";
+                for(int i = 0 ; i<input.length()/2 ; i++)
+                    cout << (char)v1[i] << (char)v2[i];
+                cout <<"]"<< endl;
+                */
             }
         }
 
