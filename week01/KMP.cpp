@@ -46,7 +46,7 @@ vector<int> kmpSearch (const string& H, const string& N) {
             if(matched == 0)
                 ++begin;
             else{
-                begin += matched  - pio[matched - 1];
+                begin += matched  - pi[matched - 1];
                 //begin을 옮겼다고 처음부터 다시 비교할 필요가 없 다
                 //옮긴 후에도 pi[matched - 1]만큼은 항상 일치하기 때문
                 matched = pi[matched - 1];
