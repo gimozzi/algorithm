@@ -11,6 +11,7 @@ vector<int> getPartialMatch(const string& N){
     vector<int> pi(m, 0);
 
     int begin = 1, matched = 0;
+    //begin 이 1인 것은 prefix, suffix 비교를 위해서...
 
     while(begin + matched < m){
         if(N[begin + matched] == N[matched]){
