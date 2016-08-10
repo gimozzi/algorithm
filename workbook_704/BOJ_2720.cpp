@@ -16,7 +16,14 @@ int main (void) {
         // Dime     $0.10   10
         // Nickel   $0.05   5
         // Penny    $0.01   1
+        
+        /*
+         * 큰 동전이 작은 동전의 배수가 되기 때문에
+         * greedy algorithm 으로 풀 수 있음
+         */
+
         int Q=0, D=0, N=0, P=0;
+        
         Q = C / 25;
         C %= 25;
         D = C / 10;
