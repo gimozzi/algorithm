@@ -37,18 +37,21 @@ vector<int> getPartialMatch (const string& N) {
     return pi;
 }
 
-vector<int> kmpSearch (const string& H, const string& N) {
+//vector<int> kmpSearch (const string& H, const string& N) {
+int kmpSearch (const string& H, const string& N) {
 
     int m = H.size(), n = N.size();
     int begin = 0, matched = 0;
-    vector<int> ret;
+    //vector<int> ret;
     vector<int> pi = getPartialMatch(N);
 
     while(begin <= m - n){
         if(matched < n && H[begin + matched] == N[matched]){
             ++matched;
-            if(matched == n)
-                ret.push_back(begin);
+            if(matched == n){
+                return begin;
+             //   ret.push_back(begin);
+            }
         }
         else{
             if(matched == 0)
@@ -59,11 +62,13 @@ vector<int> kmpSearch (const string& H, const string& N) {
             }
         }
     }
-    return ret;
+
+    //return ret;
 }
 
 int shifts (const string& original, const string& target) {
-    return kmpSearch(original + original, target)[0];
+    //return kmpSearch(original + original, target)[0];
+    return kmpSearch(original + original, target);
 }
 
 int main (void) {
@@ -87,11 +92,17 @@ int main (void) {
 
             cw = shifts(original, target);
             ccw = shifts(target, original);
+            /*
             if(cw <= ccw && cw > 0)
                 output += (cw);
             else if( cw > ccw && ccw >0)
                 output += (ccw);
-            
+            */
+            if(cw <= ccw)
+                output += cw;
+            else
+                output += ccw;
+
             original = target;
         }
 
