@@ -49,6 +49,7 @@ int kmpSearch (const string& H, const string& N) {
         if(matched < n && H[begin + matched] == N[matched]){
             ++matched;
             if(matched == n){
+                //return begin - matched + 1;
                 return begin;
              //   ret.push_back(begin);
             }
@@ -90,19 +91,29 @@ int main (void) {
             cin >> target;
             int cw, ccw;
 
+            /*
             cw = shifts(original, target);
             ccw = shifts(target, original);
+            */
+            cw = shifts(target, original);
+            ccw = shifts(original, target);
+
             /*
             if(cw <= ccw && cw > 0)
                 output += (cw);
             else if( cw > ccw && ccw >0)
                 output += (ccw);
             */
-            if(cw <= ccw)
+            /*
+            if(cw <= ccw )
                 output += cw;
             else
                 output += ccw;
-
+            */
+            if(i%2 == 0)
+                output += cw;
+            else
+                output += ccw;
             original = target;
         }
 
