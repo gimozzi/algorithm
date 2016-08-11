@@ -10,6 +10,7 @@ int main (void) {
 
     cout << a * (b%10) << endl;
     cout << a * ((b%100)/10) << endl;
+    cout << a * (b/100) << endl;
     cout << a * b << endl;
 
     return 0;
