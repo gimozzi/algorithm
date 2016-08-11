@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -8,8 +7,7 @@ int main (void) {
 
     int S;
     cin >> S;
-    //vector<int> num(S);
-    int num[S];
+    int num[200];
     for(int i=0 ; i<S ; i++)
         num[i] = 0;
     
@@ -17,13 +15,18 @@ int main (void) {
         int in;
         cin >> in;
         int j;
+        /*
         for(j=i+in; j>in ; j--){
             num[j] = num[j-1];            
         }
+        */
+        for(j=i ; j>i-in ; j--)
+            num[j] = num[j-1];
         num[j] = i+1;
     }
 
-    for(int i=S-1 ; i>=0 ; i--)
+//    for(int i=S-1 ; i>=0 ; i--)
+    for(int i=0 ; i<S ; i++)
         cout << num[i] << " ";
 
 
