@@ -20,6 +20,8 @@ int main (void) {
             }
             cout << endl;
         }
+        if(T)
+            cout << endl;
     }
 
     return 0;
