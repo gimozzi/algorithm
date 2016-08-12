@@ -12,6 +12,7 @@ int main (void) {
     B_ = B = denominator[0] * denominator[1];
     
     bool improper;
+    //Euclidean 사용하기 위해 항상 B > A 인 상태로 만들어줌 
     improper = A > B ? true : false;
     if(improper){
         int tmp = A;
