@@ -19,7 +19,7 @@ int main (void) {
         date += month[i-1];
     date += y;
 
-    cout << date <<day[date % 7];
+    cout << day[date % 7];
         
 
     return 0;
