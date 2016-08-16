@@ -5,8 +5,9 @@ int main (void) {
     int T;
     scanf("%d", &T);
     while(T--){
-        float price;
-        scanf("%f", &price);
+        //float price;
+        double price;
+        scanf("%lf", &price);
         printf("$%.2f\n", price * 0.8);
     }
 
