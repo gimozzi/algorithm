@@ -52,15 +52,28 @@ string find_LCS (const string& str1, const string& str2) {
             break;
 
         if((arr[i-1][j-1] == arr[i][j-1]) && (arr[i-1][j-1] == arr[i-1][j])){
+            //대각선 방향
             //ret.push_back(arr[i][j]);
             ret.push_back(str1[j-1]);   //i랑 j가 많이 헷갈리네욤
             i--;
             j--;
         }
-        else if(arr[i][j-1] > arr[i-1][j]){
+        else if(arr[i][j-1] > arr[i-1][j]){\
+            //왼쪽으로
             j--;
         }
         else if(arr[i-1][j] > arr[i][j-1]){
+            //위로
+            i--;
+        }
+        /*
+        else if(arr[i][j-1] == arr[i-1][j] && arr[i-1][j-1] < arr[i][j-1]){
+            // ACAYKP, YKPACA 인 경우(LCS 가 2개 이상 나올 수 있음)
+            j--;
+        }
+        */
+        else if(arr[i][j-1] == arr[i-1][j] && arr[i-1][j-1] < arr[i-1][j]){
+            // ACAYKP, YKPACA 인 경우(LCS 가 2개 이상 나올 수 있음)
             i--;
         }
     }
