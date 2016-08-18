@@ -47,31 +47,34 @@ string find_LCS (const string& str1, const string& str2) {
     int N = str1.size(), M = str2.size();
     int i = M, j = N;
 
-    /*
-     *  아래 구현한 방법은 완성된 LCS array 로 부터 역추적하는 방법임
-     *  다른 방법은 LCS array를 만들어 가는 과정에서 
-     *  LCS array의 value가 된 부분이 온 방향(대각선 or 십자(위, 왼쪽))을
-     *  또 다른 array에 저장하는 방법
-     */
     while(1){
         if(arr[i][j] == 0)
             break;
 
-        //str1과 str2 는 array 보다 i, j 에서 1씩 작게 해야됨
-        //str1: j, N
-        //str2: i, M
-        if(str1[j-1] == str2[i-1]){
-            ret.push_back(str1[j-1]);
+        if((arr[i-1][j-1] == arr[i][j-1]) && (arr[i-1][j-1] == arr[i-1][j])){
+            //대각선 방향
+            //ret.push_back(arr[i][j]);
+            ret.push_back(str1[j-1]);   //i랑 j가 많이 헷갈리네욤
             i--;
             j--;
         }
-        else{
-            if(arr[i-1][j] >= arr[i][j-1]){
-                i--;
-            }
-            else{
-                j--;
-            }
+        else if(arr[i][j-1] > arr[i-1][j]){
+            //왼쪽으로
+            j--;
+        }
+        else if(arr[i-1][j] > arr[i][j-1]){
+            //위로
+            i--;
+        }
+        /*
+        else if(arr[i][j-1] == arr[i-1][j] && arr[i-1][j-1] < arr[i][j-1]){
+            // ACAYKP, YKPACA 인 경우(LCS 가 2개 이상 나올 수 있음)
+            j--;
+        }
+        */
+        else if(arr[i][j-1] == arr[i-1][j] && arr[i-1][j-1] < arr[i-1][j]){
+            // ACAYKP, YKPACA 인 경우(LCS 가 2개 이상 나올 수 있음)
+            i--;
         }
     }
 
