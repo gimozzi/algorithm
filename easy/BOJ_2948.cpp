@@ -10,7 +10,7 @@ int main (void) {
     int month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     int M, D, date = 0;
-    cin >> M >> D;
+    cin >> D >> M;  //D일 M월로 입력 들어옴
     for(int i=1 ; i<M ; i++)
         date += month[i-1];
     date += D;
