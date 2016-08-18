@@ -43,15 +43,16 @@ int LCS (const string& str1, const string& str2) {
 
 int main (void) {
 
+    int in;
     string str, reverse_str;
-    cin >> str;
+    cin >> in >> str;
     
     reverse_str = str;
     reverse(reverse_str.begin(), reverse_str.end());
 
     int num = LCS(str, reverse_str);
 
-    cout << str.size() - num << endl;
+    cout << in - num << endl;
 
     return 0;
 }
