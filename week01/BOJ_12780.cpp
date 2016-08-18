@@ -33,12 +33,11 @@ vector<int> KMP (const string& H, const string& N) {
 
     int n = H.size(), m = N.size();
     vector<int> pi = getPartialMatch(N);
-    int num = 0;
     int begin = 0, matched = 0;
     vector<int> ret;
 
     while(begin <= (n-m)){
-        if(H[begin + matched] == N[matched]){
+        if(matched < m && H[begin + matched] == N[matched]){
             ++matched;
             if(matched == m)
                 ret.push_back(begin);
