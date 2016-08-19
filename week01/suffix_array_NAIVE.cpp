@@ -6,6 +6,8 @@
 
 using namespace std;
 
+// BOJ_11656.cpp
+
 struct SuffixComparator {
 
     const string& s;
