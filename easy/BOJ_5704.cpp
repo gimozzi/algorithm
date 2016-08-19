@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include <cstdio>
 using namespace std;
 
 
@@ -14,10 +14,14 @@ int main (void) {
             break;
 
         int alphabet[26] = {0, };
-        bool pangram = true;
         for(int i=0 ; i<str.size() ; i++){
-            alphabet[str[i] - 'a']++;
-            if(alphabet[str[i] - 'a'] > 1){
+            if(str[i] != ' '){
+                alphabet[str[i] - 'a']++;
+            }
+        }
+        bool pangram = true;
+        for(int i=0 ; i<26 ; i++){
+            if(alphabet[i] == 0){
                 pangram = false;
                 break;
             }
