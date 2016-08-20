@@ -1,7 +1,5 @@
 // blog.myungwoo.kr/57
 
-//#include <iostream>
-//#include <string>
 #include <cstdio>
 #include <cstring>
 
@@ -63,19 +61,22 @@ void LCP () {
     for(i=1 ; i<=N ; i++)
         rank[SA[i]] = i;
     for(i=1 ; i<=N ; lcp[rank[i++]]=k)
-        for(k ? k-- : 0, j=SA[ran[i]-1] ; S[i+k]==S[j+k] ; k++);
+        for(k ? k-- : 0, j=SA[rank[i]-1] ; S[i+k]==S[j+k] ; k++);
 
 }
 
 int main (void) {
 
-    scanf("%s", S);
-    N = strlen(S);
+    scanf("%s", S+1);
+    N = strlen(S+1);
     
     SuffixArray();
-    for(int i=0 ; i<N ; i++)
+    LCP();
+    for(int i=1 ; i<=N ; i++)
         printf("%d ", SA[i]);
-    printf("\n");
+    printf("\nx");
+    for(int i=2 ; i<=N ; i++)
+        printf(" %d", lcp[i]);
 
     return 0;
 }
